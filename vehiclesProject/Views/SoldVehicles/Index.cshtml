@@ -1,0 +1,110 @@
+﻿@model IEnumerable<vehiclesProject.Models.Vehicle>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<style type="text/css">  
+    table.table {
+        border-width: 3px;
+        border-spacing: 2px;
+        border-style: solid;
+        border-color: gray;
+        border-collapse: separate;
+        background-color: rgb(255, 255, 240);
+    }
+
+        table.table th {
+            border-width: 1px;
+            padding: 4px;
+            border-style: double;
+            border-color: gray;
+            background-color: white;
+            
+        }
+
+        table.table td {
+            border-width: 1px;
+            padding: 4px;
+            border-style: double;
+            border-color: gray;
+            background-color: lightblue;
+           
+        }
+        
+       .table td:hover {
+            background-color: white;
+        }
+</style>
+
+<p >
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Make.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Model.Engine_Size)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Model.Number_of_Doors)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Model.Colour)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Model.VehicleType.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Year)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SoldDate)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr class="rows">
+            <td>
+                @Html.DisplayFor(modelItem => item.Make.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Model.Engine_Size)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Model.Number_of_Doors)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Model.Colour)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Model.VehicleType.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Year)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SoldDate)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.VehicleId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.VehicleId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.VehicleId })
+            </td>
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,51 @@
+﻿@model IEnumerable<vehiclesProject.Models.Model>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.VehicleType.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Engine_Size)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Number_of_Doors)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Colour)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.VehicleType.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Engine_Size)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Number_of_Doors)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Colour)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ModelId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ModelId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ModelId })
+        </td>
+    </tr>
+}
+
+</table>
